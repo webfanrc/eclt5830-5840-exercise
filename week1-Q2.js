@@ -13,17 +13,30 @@ const fruits = [
  */
 
 function Deep(arr) {
-  let outcome = [];
+  let outcome = deepClone(arr);
 
+  sort(outcome);
+
+  return outcome;
+}
+
+function deepClone(arrObj) {
+  let newArr = [];
+  arrObj.forEach(function(n) {
+    newArr.push(Object.assign({}, n));
+  });
+
+  return newArr;
+}
+
+function sort(arr) {
   arr.sort(function(x,y) {
     return x.id - y.id;
   });
-
-
-
-  return arr;
 }
 
+
+// test:
 const fruits = [
   {id:43, title:'Apple', price:12}, {id:21, title:'Banana', price:5},
   {id:13, title:'Orange', price:8}, {id:55, title:'Mango', price:15},
