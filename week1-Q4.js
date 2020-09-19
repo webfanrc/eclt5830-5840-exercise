@@ -10,7 +10,7 @@ Please note that the value of the properties can be undefined.
 
 function checkKey(par) {
 
-  if (typeof par == 'object') {
+  if (typeof par == 'object' && par !== null) {
     let arr = Object.getOwnPropertyNames(par).concat(Object.getOwnPropertyNames(par.__proto__));
 
     if (arr.indexOf('foo') != -1 && arr.indexOf('bar') != -1 && arr.indexOf('foo-bar') != -1) return true;
