@@ -1,0 +1,83 @@
+<html>
+<body>
+<!-- You should not need to edit this HTML content -->
+<ul id=flist>
+
+    <li>Title #1</li>
+    <li>Title #2</li>
+    <li>Title #3</li>
+    <li>Title #4</li>
+
+</ul>
+
+<hr>
+<button onclick="drawlist(event)">Update List</button>
+
+<script>
+    // Note: The load type of this JS is "No Wrap - bottom of <body>"
+
+    const fruits = [
+        {id:43, title:'Apple', price:12}, {id:21, title:'Banana', price:5},
+        {id:13, title:'Orange', price:8}, {id:55, title:'Mango', price:15},
+        {id:44, title:'Grape', price:10}, {id:6, title:'Peach', price: 14}
+    ]
+
+    /*
+       Implement the function drawlist() so that when the "Update List" button is clicked,
+       the list "#flist" (see the HTML above) is repopulated by the data in fruits[].
+       In addition, if the price of an item is more than 10, show the title of the item in red.
+
+       Small Challenge:
+         Edit your code so that when a user clicks on an item in the list, the ID of the
+         item is output in the console via console.log()?
+
+         Feel free to add additonal statements of functions.
+    */
+
+    let ele = document.querySelector('#flist');
+
+    function drawlist(event) {
+        ele.innerHTML = "";
+        for (let i = 0; i < fruits.length; i++) {
+            let foo = document.createElement('li');
+
+            foo.innerHTML = fruits[i].title;
+
+            foo.setAttribute('data-id', fruits[i].id);
+
+            if (fruits[i].price > 10) {
+                foo.classList.add("red");
+            }
+
+            ele.appendChild(foo);
+        }
+
+    }
+
+    ele.addEventListener('click', showId);
+
+    function showId(event) {
+        if (event.target.tagName == 'LI') {
+            console.log(event.target.dataset.id);
+        }
+
+    }
+
+
+
+</script>
+</body>
+<style>
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .red {
+        color: red;
+    }
+
+
+</style>
+</html>

@@ -1,0 +1,63 @@
+<html>
+<body>
+<div id=container>
+
+    <div>red</div>
+    <div>green</div>
+    <div>blue</div>
+    <div>gold</div>
+    <div>silver</div>
+    <div>orange</div>
+    <div>pink</div>
+    <div>cyan</div>
+    <div>purple</div>
+
+</div>
+<script>
+    /*
+      Without changing the HTML and CSS, insert
+      script here to meet the following objective:
+
+      When the mouse cursor enter a cell
+      (div elements inside the container), change the
+      background color of the cell to the color
+      specified in the cell. When the mouse cursor
+      leave a cell, clear the background color from
+      the cell.
+
+      Hint: It is possible to use the same callback
+      functions on all cells.
+    */
+
+    let eles = document.querySelectorAll('#container div');
+
+    for (let i = 0; i< eles.length; i++) {
+        eles[i].addEventListener('mouseenter', AddColor);
+        eles[i].addEventListener('mouseout', RemoveColor);
+    }
+
+    function AddColor(event) {
+        event.target.style.background = event.target.innerHTML;
+    }
+
+    function RemoveColor(event) {
+        event.target.style.background = "";
+    }
+
+</script>
+</body>
+<style>
+    #container {
+        display: grid;
+        grid-template-columns: 100px 100px 100px;
+        grid-template-rows: 100px 100px 100px;
+    }
+
+    #container div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        outline: 1px black solid;
+    }
+</style>
+</html>

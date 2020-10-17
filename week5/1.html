@@ -1,0 +1,34 @@
+<html>
+<body>
+<!-- This HTML has been simplified to make it easy to read -->
+<form id=form1 oninput="duplicate(event)">
+    <input id=name1 type=text>
+    <input id=r_cb1 type=checkbox value=red>Red
+    <input id=b_cb1 type=checkbox value=green>Green
+    <input id=g_cb1 type=checkbox value=blue>Blue
+    <input type=reset>
+</form>
+
+<form id=form2>
+    <input id=name2 type=text>
+    <input id=r_cb2 type=checkbox value=red>Red
+    <input id=b_cb2 type=checkbox value=green>Green
+    <input id=g_cb2 type=checkbox value=blue>Blue
+</form>
+
+<script>
+    // Note: The load type of this JS is "No Wrap - bottom of <body>"
+
+    // Implement this function so that it copies every input value from "form1" to "form2"
+    function duplicate(event) {
+        document.querySelector('#name2').value = document.querySelector('#name1').value;
+        document.querySelector('#r_cb2').checked = document.querySelector('#r_cb1').checked;
+        document.querySelector('#b_cb2').checked = document.querySelector('#b_cb1').checked;
+        document.querySelector('#g_cb2').checked = document.querySelector('#g_cb1').checked;
+
+        //console.log(event.target); can't get reset buttom
+    }
+
+</script>
+</body>
+</html>

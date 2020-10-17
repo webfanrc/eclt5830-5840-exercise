@@ -7,7 +7,3 @@
 ## 课程内容
 
 pending
-
-## 看法
-
-pending
