@@ -1,0 +1,93 @@
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body>
+    <main>
+        <div>
+            <h1>Xie Ruochen's Assignment 1</h1>
+            <p>
+                <span>Full name: Xie Ruochen</span>
+                <br>
+                <span>Student ID: 1155152557</span>
+            </p>
+        </div>
+
+        <ul>
+            <li>
+                <a href="/item?id=1">A page to show a single item</a>
+            </li>
+        </ul>
+
+        <div class="nav-bar">
+            <div class="title">
+                <p>ECLT5830</p>
+            </div>
+
+            <div class="list">
+                <p>
+                    <a href="/items">List Items</a>
+                </p>
+                <p>
+                    <a href="/addItem">Add Item</a>
+                </p>
+            </div>
+
+            <div class="small-size-list">
+                <div>
+                    <p>MORE</p>
+                </div>
+                <p>
+                    <a href="/items">List Items</a>
+                </p>
+                <p>
+                    <a href="/addItem">Add Item</a>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+<style type="text/less">
+    main {
+        margin: 50px auto 0;
+    }
+
+
+    @height: 50px;
+    div.nav-bar {
+        p {
+            padding: 0;
+            margin: 0;
+        }
+        display: flex;
+        border: 1px solid gray;
+        padding: 0 10px;
+        div.title {
+            padding-right: 20px;
+            p {
+                line-height: @height;
+            }
+        }
+        div.list {
+            display: flex;
+            p {
+                line-height: @height;
+                padding-right: 10px;
+            }
+        }
+        div.small-size-list {
+            display: none;
+        }
+
+        @media screen and (max-width: 400px) {
+            div.list {
+                display: none;
+            }
+            div.small-size-list {
+                display: flex;
+            }
+        }
+    }
+</style>
+<script src="//cdn.jsdelivr.net/npm/less" ></script>
+</html>

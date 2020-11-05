@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body>
+<main>
+    <div>
+        <% if (itemObj) { %>
+            <p>Id: <%= itemObj.id %></p>
+            <p>Title: <%= itemObj.title %><p>
+            <img src="img/<%=itemObj.imageUrl%>">
+            <p>Price: <%= itemObj.price %></p>
+        <% } %>
+
+        <% if (!itemObj) { %>
+            Error: the item does not exist!
+        <% } %>
+    </div>
+</main>
+</body>
+<style>
+    main {
+        margin: 50px auto 0;
+        width: 400px;
+    }
+</style>
+</html>

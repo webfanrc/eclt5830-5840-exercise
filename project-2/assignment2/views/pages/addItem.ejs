@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body>
+    <main>
+        <form action="/create" method="post" class="form-example">
+
+            <div>
+                <label for="title">Item's title: </label>
+                <input type="text" name="title" required>
+            </div>
+
+            <div>
+                <label for="price">Item's price: </label>
+                <input type="number" name="price" required>
+            </div>
+
+            <div>
+                <label for="imageUrl">Item's imgUrl: </label>
+                <input type="text" name="imageUrl" required>
+            </div>
+
+            <input type="submit" value="Submit">
+
+            </div>
+        </form>
+    </main>
+</body>
+<style>
+    main {
+        margin: 50px auto 0;
+        width: 400px;
+    }
+    label {
+        display: inline-block;
+        width: 100px;
+    }
+</style>
+</html>

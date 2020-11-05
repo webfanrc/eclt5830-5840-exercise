@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body>
+<main>
+    <div>
+        <% itemObjs.forEach(function(itemObj) { %>
+        <div class="itemObj">
+            <div>
+                <p>Title: <a href="item?id=<%=itemObj.id%>"><%= itemObj.title %></a><p>
+                <p>Price: <%= itemObj.price %></p>
+            </div>
+            <img src="small-img/<%=itemObj.imageUrl%>">
+        </div>
+        <% }); %>
+
+    </div>
+</main>
+</body>
+<style>
+    main {
+        margin: 50px auto 0;
+        width: 400px;
+    }
+    div.itemObj {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 0 20px 0;
+        height: 100px;
+    }
+    div.itemObj img {
+        width: 80px;
+        height: 80px;
+    }
+</style>
+</html>
