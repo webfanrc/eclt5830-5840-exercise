@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 8080;
+const port = 8080; // Assign Requirement
 const items = require('./js/item');
 
 const url = require('url');
@@ -11,7 +11,7 @@ app.use( express.static( "public" ) );
 const bodyParser = require('body-parser');
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 
 
 app.set('view engine', 'ejs');
@@ -34,9 +34,8 @@ app.get('/item', function (req, res) {
 
 // Items page(HTML)
 app.get('/items', function (req, res) {
-    let itemObjs = items.getAll();
 
-    res.render('pages/items', {itemObjs: itemObjs});
+    res.render('pages/items');
 });
 
 
@@ -70,7 +69,7 @@ function validateData(formData) {
     for (let i = 1; i <= 10; i++) {
         Imglist.push(i + '.jpg');
     }
-    return typeof formData.title === 'string' && formData.title.length >= 1
+    return formData.title
         && formData.price >= 0 && formData.price <= 1000000
         && Imglist.indexOf(formData.imageUrl) !== -1;
 
