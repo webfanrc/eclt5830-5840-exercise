@@ -32,10 +32,19 @@ app.get('/item', function (req, res) {
     res.render('pages/item', {itemObj: itemObj});
 });
 
+// Items page(HTML)
 app.get('/items', function (req, res) {
     let itemObjs = items.getAll();
 
     res.render('pages/items', {itemObjs: itemObjs});
+});
+
+
+// Get items method(json)
+app.get("/getItems", (req, res) => {
+    let allItems = items.getAll();
+    res.set('Cache-Control', 'no-cache');
+    res.json(allItems);
 });
 
 app.get('/addItem', function (req, res) {
