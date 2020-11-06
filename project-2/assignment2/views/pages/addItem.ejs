@@ -4,21 +4,37 @@
 </head>
 <body>
     <main>
-        <form action="/create" method="post" class="form-example">
+        <form action="/create" method="post" class="form-example" onsubmit="return check()">
 
-            <div>
-                <label for="title">Item's title: </label>
-                <input type="text" name="title" required>
+            <div class="form_content">
+                <label for="title">Title </label>
+                <input type="text" name="title">
+                <p class="title_notice notice hidden">Please enter at least one character.</p>
             </div>
 
-            <div>
-                <label for="price">Item's price: </label>
-                <input type="number" name="price" required>
+            <div class="form_content">
+                <label for="price">Price </label>
+                <input type="number" name="price">
+                <p class="price_notice notice hidden">Please enter an integer between 0 and 1000000.</p>
             </div>
 
-            <div>
-                <label for="imageUrl">Item's imgUrl: </label>
-                <input type="text" name="imageUrl" required>
+            <div class="form_content">
+                <label for="imageUrl">ImgUrl </label>
+                <select name="imageUrl">
+                    <option disabled selected value> -- select an option -- </option>
+                    <option value="0.jpg">0.jpg</option>
+                    <option value="1.jpg">1.jpg</option>
+                    <option value="2.jpg">2.jpg</option>
+                    <option value="3.jpg">3.jpg</option>
+                    <option value="4.jpg">4.jpg</option>
+                    <option value="5.jpg">5.jpg</option>
+                    <option value="6.jpg">6.jpg</option>
+                    <option value="7.jpg">7.jpg</option>
+                    <option value="8.jpg">8.jpg</option>
+                    <option value="9.jpg">9.jpg</option>
+                    <option value="10.jpg">10.jpg</option>
+                </select>
+                <p class="img_notice notice hidden">Please select an image.</p>
             </div>
 
             <input type="submit" value="Submit">
@@ -26,15 +42,93 @@
             </div>
         </form>
     </main>
+<script>
+    function check() {
+      let title = document.querySelector("input[name='title']").value;
+      let price = document.querySelector("input[name='price']").value;
+      let imageUrl = document.querySelector("select[name='imageUrl']").value;
+
+      let flag = 0;
+
+      if (!title) {
+        document.querySelector('.title_notice').classList.remove('hidden');
+
+        flag = 1;
+      } else {
+        document.querySelector('.title_notice').classList.add('hidden');
+      }
+
+      if (!price || price < 0 || price > 1000000) {
+        document.querySelector('.price_notice').classList.remove('hidden');
+
+        flag = 1;
+      } else {
+        document.querySelector('.price_notice').classList.add('hidden');
+      }
+
+      if (!imageUrl) {
+        document.querySelector('.img_notice').classList.remove('hidden');
+
+        flag = 1;
+      } else {
+        document.querySelector('.img_notice').classList.add('hidden');
+      }
+
+
+      if (flag == 1) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+</script>
 </body>
-<style>
-    main {
-        margin: 50px auto 0;
-        width: 400px;
+<style type="text/less">
+    @small-screen-width: 992px;
+    p {
+        margin: 0;
+        padding: 0;
     }
     label {
         display: inline-block;
-        width: 100px;
+        width: 50px;
+    }
+    form {
+        div.form_content {
+            display: grid;
+            grid-template-columns: 50px 200px auto;
+            grid-template-rows: 20px;
+            grid-gap: 0.6em 0.6em;
+            margin-bottom: 20px;
+            input {
+                height: 20px;
+            }
+            p.hidden.notice {
+                display: none;
+            }
+        }
+    }
+
+
+    @media screen and (max-width: @small-screen-width) {
+        form {
+            div.form_content {
+                display: grid;
+                grid-template-columns: 50px 200px auto;
+                grid-template-rows: 20px 20px;
+                grid-gap: 1em 1em;
+                input {
+                    height: 20px;
+                }
+                p.notice {
+                    grid-area: 2 e("/") 1 e("/") 3 e("/") 4;
+                }
+                p.hidden.notice {
+                    display: none;
+                }
+            }
+        }
     }
 </style>
+<script src="//cdn.jsdelivr.net/npm/less" ></script>
 </html>
