@@ -3,46 +3,14 @@
     <%- include('../partials/head'); %>
 </head>
 <body>
-    <main>
-        <div>
-            <h1>Assignment 1</h1>
-            <p>
-                <span>Full name: Xie Ruochen</span>
-                <br>
-                <span>Student ID: 1155152557</span>
-            </p>
-        </div>
+    <div class="nav-bar">
 
-        <ul>
-            <li>
-                <a href="/item?id=1">A page to show a single item</a>
-            </li>
-        </ul>
-
-        <div class="nav-bar">
-
-            <div class="list-show">
-                <div class="title">
-                    <p>ECLT5830</p>
-                </div>
-
-                <div class="list">
-                    <p>
-                        <a href="/items">List Items</a>
-                    </p>
-                    <p>
-                        <a href="/addItem">Add Item</a>
-                    </p>
-                </div>
-
-                <div class="nav-bottoms">
-                    <div class="bottom">
-                        <p>MORE</p>
-                    </div>
-                </div>
+        <div class="list-show">
+            <div class="title">
+                <p>ECLT5830</p>
             </div>
 
-            <div class="list-hidden">
+            <div class="list">
                 <p>
                     <a href="/items">List Items</a>
                 </p>
@@ -50,8 +18,53 @@
                     <a href="/addItem">Add Item</a>
                 </p>
             </div>
+
+            <div class="nav-bottoms">
+                <div class="bottom">
+                    <p>MORE</p>
+                </div>
+            </div>
         </div>
-    </main>
+
+        <div class="list-hidden">
+            <p>
+                <a href="/items">List Items</a>
+            </p>
+            <p>
+                <a href="/addItem">Add Item</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="grid_container">
+        <div class="content_1">
+            <div class="banner">
+                Content Area #1 (Banner)
+            </div>
+        </div>
+
+        <div class="content_2">
+            <p>
+                <span>Full name: Xie Ruochen</span>
+                <br>
+                <span>Student ID: 1155152557</span>
+            </p>
+        </div>
+
+        <div class="content_3">
+            <p>
+                <a href="/item?id=1">A page to show a single item</a>
+            </p>
+        </div>
+
+        <div class="content_4">
+            <p>
+                Content Area #4
+            </p>
+        </div>
+
+    </div>
+
 
     <script>
         let Bottom = document.querySelector('.nav-bottoms .bottom');
@@ -93,23 +106,18 @@
     </script>
 </body>
 <style type="text/less">
-    main {
-        margin: 50px auto 0;
-    }
-
-
     @height: 50px;
+    @small-screen-width: 400px;
+    p {
+        padding: 0;
+        margin: 0;
+    }
 
     div.nav-bar {
         display: flex;
         flex-direction: column;
         border: 1px solid gray;
         padding: 0 10px;
-
-        p {
-            padding: 0;
-            margin: 0;
-        }
 
         div.list-show {
             display: flex;
@@ -145,7 +153,7 @@
         }
     }
 
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: @small-screen-width) {
         div.nav-bar {
             div.list-show {
                 display: flex;
@@ -172,6 +180,39 @@
             div.list-hidden {
                 display: flex;
             }
+        }
+    }
+
+    div.grid_container {
+        display: grid;
+        grid-template-columns: 33.3% auto 33.3%;
+        grid-template-rows: 50% auto;
+        height: 300px;
+        grid-gap: 0.3em 0.6em;
+        margin-top: 0.3em;
+
+
+        div.content_1 {
+            grid-area: 1 e("/") 1 e("/") 2 e("/") 4;
+        }
+
+        div.content_1,
+        div.content_2,
+        div.content_3,
+        div.content_4 {
+            border: 1px dotted gray;
+        }
+    }
+
+    @media screen and (max-width: @small-screen-width) {
+        div.grid_container {
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 33.3% auto 33.3%;
+            height: 300px;
+        }
+        div.content_1 {
+            display: none;
         }
     }
 </style>
