@@ -5,7 +5,7 @@
 <body>
     <main>
         <div>
-            <h1>Xie Ruochen's Assignment 1</h1>
+            <h1>Assignment 1</h1>
             <p>
                 <span>Full name: Xie Ruochen</span>
                 <br>
@@ -20,23 +20,29 @@
         </ul>
 
         <div class="nav-bar">
-            <div class="title">
-                <p>ECLT5830</p>
-            </div>
 
-            <div class="list">
-                <p>
-                    <a href="/items">List Items</a>
-                </p>
-                <p>
-                    <a href="/addItem">Add Item</a>
-                </p>
-            </div>
-
-            <div class="small-size-list">
-                <div>
-                    <p>MORE</p>
+            <div class="list-show">
+                <div class="title">
+                    <p>ECLT5830</p>
                 </div>
+
+                <div class="list">
+                    <p>
+                        <a href="/items">List Items</a>
+                    </p>
+                    <p>
+                        <a href="/addItem">Add Item</a>
+                    </p>
+                </div>
+
+                <div class="nav-bottoms">
+                    <div class="bottom">
+                        <p>MORE</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="list-hidden">
                 <p>
                     <a href="/items">List Items</a>
                 </p>
@@ -46,6 +52,45 @@
             </div>
         </div>
     </main>
+
+    <script>
+        let Bottom = document.querySelector('.nav-bottoms .bottom');
+        let List = document.querySelector('.list-hidden');
+
+        // JS Animation
+        // Source: https://www.w3schools.com/howto/howto_js_animate.asp
+        const finalPos = 80; // height=40, two contents
+        const frame_speed = 1;
+        let pos = 0;
+        let EXPAND, HIDE;
+
+        Bottom.addEventListener('click', function(event) {
+          List.classList.toggle('clicked');
+          if (List.classList.contains('clicked')) {
+            EXPAND = setInterval(frame_EXPAND, frame_speed);
+          } else {
+            HIDE = setInterval(frame_HIDE, frame_speed);
+          }
+        })
+
+        function frame_EXPAND() {
+            if (pos == finalPos) {
+              clearInterval(EXPAND);
+            } else {
+              pos++;
+              List.style.height = pos + 'px';
+            }
+        }
+
+        function frame_HIDE() {
+          if (pos == 0) {
+            clearInterval(HIDE);
+          } else {
+            pos--;
+            List.style.height = pos + 'px';
+          }
+        }
+    </script>
 </body>
 <style type="text/less">
     main {
@@ -54,36 +99,77 @@
 
 
     @height: 50px;
+
     div.nav-bar {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid gray;
+        padding: 0 10px;
+
         p {
             padding: 0;
             margin: 0;
         }
-        display: flex;
-        border: 1px solid gray;
-        padding: 0 10px;
-        div.title {
-            padding-right: 20px;
-            p {
-                line-height: @height;
-            }
-        }
-        div.list {
-            display: flex;
-            p {
-                line-height: @height;
-                padding-right: 10px;
-            }
-        }
-        div.small-size-list {
-            display: none;
-        }
 
-        @media screen and (max-width: 400px) {
+        div.list-show {
+            display: flex;
+
+            div.title {
+                padding-right: 20px;
+                p {
+                    line-height: @height;
+                }
+            }
             div.list {
+                display: flex;
+                position: relative;
+                p {
+                    line-height: @height;
+                    padding-right: 10px;
+                }
+            }
+            div.nav-bottoms {
                 display: none;
             }
-            div.small-size-list {
+        }
+        div.list-hidden {
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+
+            height: 0;
+            p {
+                line-height: @height - 10px;
+                opacity: 0.8;
+            }
+        }
+    }
+
+    @media screen and (max-width: 400px) {
+        div.nav-bar {
+            div.list-show {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+
+                div.list {
+                    display: none;
+                }
+
+                div.nav-bottoms {
+                    display: flex;
+                    div.bottom {
+                        border: 1px solid gray;
+                        padding: 5px 10px;
+                        border-radius: 5px;
+                    }
+                    div.bottom:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+            div.list-hidden {
                 display: flex;
             }
         }
