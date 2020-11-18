@@ -142,5 +142,22 @@ where budget > some (
 ```
 
 #2 Parallel SQL Processing
+Consider:
+1. deal with the ith node
+2. the union of all the node results is the same as the final answer
+
+1) Round-robin
+Don't know where the value is. So the operation which need to get to know data's specific address can not work in parallel condition.
+- Difference operation: No
+- Aggregation by count: Yes
+- Aggregation by count distinct: No
+
+
+2) Hash/Range
+Could know where the value is.
+- Difference operation: Yes
+- Aggregation by count: Yes
+- Aggregation by count distinct: Yes
+    
 
 
