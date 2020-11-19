@@ -1,26 +1,26 @@
 # README
 
-这是CUHK课程ECLT5830的随堂小作业，占10%的分数。
+内容：
 
-还有
-project作业。
+1）ECLT5830的随堂小作业
 
-以及
-ECLT5840 SQL作业，占20%分数。
+2）ECLT5830的project作业
+
+3）ECLT5840 SQL作业
 
 ## 课程内容
 
-web dev(偏前端）:
+- ECLT5830 - web dev:
 
-1. 基础
-2. GUI
-3. 实践
+    1. 基础
+    2. GUI
+    3. 实践
 
-DB（SQL）
+- ECLT5840 - DB（SQL）
 Based on：https://www.db-book.com/db6/lab-dir/sample_tables-dir/index.html
 
 ## 文件目录
 
-week文件：web课随堂作业
-project文件：web课assign
-sqlPractice文件：网络课作业
+- week：web课随堂作业
+- project：web课assign
+- sqlPractice：网络课作业
