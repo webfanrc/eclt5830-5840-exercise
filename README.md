@@ -6,7 +6,7 @@
 
 2）ECLT5830的project作业
 
-3）ECLT5840 SQL作业
+3）ECLT5840的SQL作业
 
 ## 课程内容
 
@@ -17,10 +17,16 @@
     3. 实践
 
 - ECLT5840 - DB（SQL）
-Based on：https://www.db-book.com/db6/lab-dir/sample_tables-dir/index.html
+
+    Based on：https://www.db-book.com/db6/lab-dir/sample_tables-dir/index.html
 
 ## 文件目录
 
-- week：web课随堂作业
-- project：web课assign
-- sqlPractice：网络课作业
+-ECLT5830
+
+    - assign2-sql
+    
+-ECLT5840
+
+    - week：web课随堂作业
+    - project：web课assign

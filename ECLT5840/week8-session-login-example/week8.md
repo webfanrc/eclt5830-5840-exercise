@@ -15,15 +15,16 @@ http://www.example.com:8080/abc/xyz.jpg
 http://www.EXAMPLE.com/hehe
 http://WWW.example.com/haha
 
+### My answer
 Same origin means that they have the same host, port and protocol, so:
 
-A is, the default port number is 80;
-B is not, using different protocol;
-C is;
-D is;
-E is not, using different port;
-F is;
-G is;
+- A is, the default port number is 80;
+- B is not, using different protocol;
+- C is;
+- D is;
+- E is not, using different port;
+- F is;
+- G is;
 
 ## Q2
 In the “login” demo app (inside the file session-login-example.zip), the session is set to expired in 60 seconds.
@@ -68,6 +69,7 @@ If path is "/special/index", include session ID cookie in request.
 If path is "/image/foo.jpg", exclude session ID cookie in request.
 If path is "/index", exclude session ID cookie in request.
 
+### My answer
 app.use(session({
     cookie: { 
         path: '/special'
