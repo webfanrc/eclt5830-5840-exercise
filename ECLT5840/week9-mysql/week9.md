@@ -1,6 +1,11 @@
+# Condition
+
+完成；未被批改
+
+
 # instruction
 
-For additional info about the database, please refer to the instructions in mysql-example.
+For additional info about the database, please refer to the instructions in [mysql-example](./mysql-example).
 
 # Q1
 

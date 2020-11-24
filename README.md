@@ -15,18 +15,18 @@
     1. 基础
     2. GUI
     3. 实践
-
+    
 - ECLT5840 - DB（SQL）
 
     Based on：https://www.db-book.com/db6/lab-dir/sample_tables-dir/index.html
 
 ## 文件目录
 
--ECLT5830
+- ECLT5830
 
     - assign2-sql
     
--ECLT5840
+- ECLT5840
 
     - week：web课随堂作业
     - project：web课assign
