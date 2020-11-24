@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <title>Assignment #3</title>
+<script src="/js/vue.min.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/asgn3.js"></script>
+<link rel=stylesheet href="/css/asgn3.css">
+</head>
+
+<body>
+
+<div id="asgn3_app">
+
+<button id=retrieve v-on:click=retrieveItems>Retrieve All Items</button><br>
+<button id=retrieve v-on:click=clearSelection>Clear Selection</button><br>
+<button id=retrieve v-on:click=saveSelection>Save Selection (in localStorage)</button><br>
+<button id=retrieve v-on:click=submitSelection>Submit Selection to server B</button><br>
+
+<div>
+  <label>Show only selected</label>
+  <input type=checkbox id=showSelected v-model="showSelected" v-on:change=filter>
+</div>
+
+<ul>
+  <li v-for="item in items">
+    <div v-bind:id="item.id"
+         v-on:click="toggleItemSelect(item.id)"
+         v-bind:class="{selected: isSelected(item.id)}">
+      {{item.id}}: {{item.title}}
+    </div>
+  </li>
+</ul>
+
+</div>
+
+</body>
+</html>

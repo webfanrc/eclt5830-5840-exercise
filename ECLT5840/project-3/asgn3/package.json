@@ -1,0 +1,14 @@
+{
+  "name": "asgn3",
+  "version": "1.0.0",
+  "description": "ECLT5830 -- Assignment #3 (Term 2 2019-2020)",
+  "main": "serverA.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
