@@ -1,6 +1,13 @@
 let express = require('express');
+
 let app = express();
 const items = require('./js/item');
+
+
+app.get('/', function(req, res) {
+  res.write('OK');
+  res.end();
+});
 
 app.get('/favicon.ico', (req, res) => { res.status(204).end(); });
 
@@ -14,4 +21,4 @@ app.get('/getItems', function(req, res) {
 app.use(express.static('public'));
 
 
-app.listen(8080);
+app.listen(8080, ()=> console.log(`Server A OK!`));

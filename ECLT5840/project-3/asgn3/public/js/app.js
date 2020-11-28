@@ -22,10 +22,14 @@ let app = new Vue({
 
     retrieveItems: function() {
       if (this.asgn3 && this.asgn3.retrieveItems)
+
         this.asgn3.retrieveItems(this);
+
       else
+
         console.error('asgn3 or asgn3.retrieveItems() not defined');
     },
+
     clearSelection: function() {
       this.selected = [];
     },

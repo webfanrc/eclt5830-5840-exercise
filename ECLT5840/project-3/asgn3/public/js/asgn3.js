@@ -12,32 +12,31 @@ window.addEventListener('load', function() {
 // TODO: Complete the implementation of these four functions.
 let asgn3 = {
   retrieveItems: function(app) {
-    // Task 1
-    // TODO:
-    //   Send an Ajax GET request to /getItems to retrieve items from the,
-    //   server, and call app.setItems to set the list items.
 
-    // Remove this statement when you have implemented this function.
-    window.alert('retrieveItems() has not yet been implemented');
+    $.ajax({
+      url: 'http://localhost:8080/getItems',
+      type: 'GET',
+      async: true,
+      success: function(result) {
+        app.setItems(result)
+      }
+    });
+
   },
 
   saveSelection: function(app) {
-    // Task 2
-    // TODO: Save app.selected (an array of integers) to localStorage
 
-    // Remove this statement when you have implemented this function.
-    window.alert('saveSelection() has not yet been implemented');
+    // 用户直接选id而不是index
+    localStorage.setItem('selectedItems', app.selected);
   },
 
   restoreSelection: function(app) {
     // Task 2
     // TODO: Restore the array of integers from localStorage and
     //   assign the array to app.selected
-    // Your code should consider the case that "window.localStorage" is empty
-    //   initially.
 
-    // Remove this statement when you have implemented this function.
-    console.log('restoreSelection() has not yet been implemented');
+    app.selected = [];
+    localStorage.setItem('selectedItems', app.selected);
   },
 
   submitSelection: function(app) {
