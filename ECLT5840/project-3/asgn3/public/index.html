@@ -27,7 +27,7 @@
   <li v-for="item in items">
     <div v-bind:id="item.id"
          v-on:click="toggleItemSelect(item.id)"
-         v-bind:class="{selected: isSelected(item.id)}">
+         v-bind:class="{selected: isSelected(item.id)}"> <!-- 这里取的是item.id  -->
       {{item.id}}: {{item.title}}
     </div>
   </li>

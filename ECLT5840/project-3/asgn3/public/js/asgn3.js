@@ -11,8 +11,9 @@ window.addEventListener('load', function() {
 
 // TODO: Complete the implementation of these four functions.
 let asgn3 = {
+  // app作为Vue实例的引用
   retrieveItems: function(app) {
-
+    // Task 1
     $.ajax({
       url: 'http://localhost:8080/getItems',
       type: 'GET',
@@ -32,11 +33,7 @@ let asgn3 = {
 
   restoreSelection: function(app) {
     // Task 2
-    // TODO: Restore the array of integers from localStorage and
-    //   assign the array to app.selected
-
-    app.selected = [];
-    localStorage.setItem('selectedItems', app.selected);
+    app.selected = localStorage.getItem('selectedItems').split(',').map(x=> Number(x));
   },
 
   submitSelection: function(app) {
