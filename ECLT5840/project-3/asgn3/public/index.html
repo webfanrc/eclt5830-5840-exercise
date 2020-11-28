@@ -2,11 +2,11 @@
 <html>
 <head>
   <title>Assignment #3</title>
-<script src="./js/vue.min.js"></script>
-<script src="./js/jquery.min.js"></script>
-<script src="./js/app.js"></script>
-<script src="./js/asgn3.js"></script>
-<link rel=stylesheet href="./css/asgn3.css">
+  <script src="/js/vue.min.js"></script>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/asgn3.js"></script>
+  <link rel=stylesheet href="/css/asgn3.css">
 </head>
 
 <body>
@@ -25,6 +25,8 @@
 
 <ul>
   <li v-for="item in items">
+
+
     <div v-bind:id="item.id"
          v-on:click="toggleItemSelect(item.id)"
          v-bind:class="{selected: isSelected(item.id)}"> <!-- 这里取的是item.id  -->

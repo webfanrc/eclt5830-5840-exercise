@@ -9,7 +9,6 @@ window.addEventListener('load', function() {
     - Use this methods to set the items in the list.
 */
 
-// TODO: Complete the implementation of these four functions.
 let asgn3 = {
   // app作为Vue实例的引用
   retrieveItems: function(app) {
@@ -29,6 +28,7 @@ let asgn3 = {
 
     // 用户直接选id而不是index
     localStorage.setItem('selectedItems', app.selected);
+    console.log("saved");
   },
 
   restoreSelection: function(app) {
@@ -40,12 +40,15 @@ let asgn3 = {
     // Task 3
     // TODO: Send app.selected via Ajax to "server B" and
     //   output the array in the response to the JS console.
-    // (See Task 3's requirements for more info)
-
-    // You need to implement the server-side script accordingly.
-
-    // Remove this statement when you have implemented this function.
-    window.alert('submitSelection() has not yet been implemented');
+    $.ajax({
+      url: 'http://localhost:8081/sendSelection',
+      type: 'POST',
+      data: app.selected.toString(),
+      async: true,
+      success: function(result) {
+        console.log(result);
+      }
+    });
   }
 }
 
