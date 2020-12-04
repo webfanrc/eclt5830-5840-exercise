@@ -102,7 +102,7 @@ app.post('/login', async function(req, res) {
 
 app.use(express.static('public'));
 
-let server = app.listen(8080);
+app.listen(8080, ()=> console.log(`Server is OK! On port 8080`));
 
 
 
