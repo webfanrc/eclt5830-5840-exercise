@@ -23,12 +23,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 /*
   Redeem an item for the current user.
-
-  TODO: Modify this callback function to perform the following tasks:
-   1) If the user is not currently logged in, redirect the client to "/login.html" 
-   2) Retrieve the user_id from the session (if the user is currently logged in)
-   3) Retrieve the item_id from the request body
-   4) Call Redeem.redeem(user_id, item_id) to redeem the item for the current user.
 */
 app.post('/redeem', async function(req, res) {
 
@@ -57,23 +51,27 @@ app.post('/redeem', async function(req, res) {
 
 /*
   List all items redeemed by the current user.
-
-  TODO: Modify this callback function to perform the following tasks:
-   1) If the user is not currently logged in, redirect the client to "/login.html" 
-   2) Retrieve the user_id from the session (if the user is currently logged in)
-   3) Retrieve all items redeemed by the current user from the database.
-      For each redeemed item, you should include the item_id, title, and price 
-      of the item.
-
-      Note: You need to figure out the SQL statement(s) to perform this task,
-      and call db.query to retrieve the necessary data from the database.
 */
 app.get('/list', async function(req, res) {
-  let redeemed_items = [];
+  if (!req.session.username) res.redirect('/login.html');
 
+  let userName = req.session.username;
+  let user_Obj = await User.findByUsername(userName);
+  let user_id = user_Obj.id;
 
+  let sql = `
+  select A.item_id, B.title, B.price
+  from redeemed_items as A, items as B
+  where A.user_id = ? and A.item_id=B.item_id
+  `;
+  let data = [user_id];
 
-  res.json(redeemed_items); 
+  let results = await db.query(sql, data);
+
+  let redeemed_items = results;
+
+  res.json(redeemed_items);
+
 });
 
 /*
