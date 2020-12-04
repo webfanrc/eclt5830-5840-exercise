@@ -3,7 +3,7 @@
 const options = {
   host: 'localhost',
   user: 'root',
-  password: '',
+  password: 'rootroot',
   database: 'eclt5830_asgn4',
   connectionLimit: 10           // Connection pool size
 };

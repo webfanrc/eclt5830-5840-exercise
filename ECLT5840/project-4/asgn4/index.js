@@ -6,14 +6,20 @@ const User = require('./js/user');
 const Item = require('./js/item');
 const Redeem = require('./js/redeem');
 
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const sessionSecretKey = 'sessionSecretKey';
 
-/* 
-  TODO: Add code to 
-    - Enable session support (make the session to expire when the user closes 
-      the browser)
-    - Add middleware to parse request's body
-*/
 
+
+
+// Enable session support (make the session to expire when the user closes the browser)
+app.use(session({
+  secret: sessionSecretKey
+}));
+
+// Parse request's body
+app.use(bodyParser.urlencoded({ extended: true }));
 
 /*
   Redeem an item for the current user.
@@ -27,9 +33,17 @@ const Redeem = require('./js/redeem');
 app.post('/redeem', async function(req, res) {
 
   // These values are currently hardcoded for demo purpose
-  let user_id = 1, item_id = 1;
 
   try {
+    if (!req.session.username) res.redirect('/login.html');
+    let userName = req.session.username;
+
+    let user_Obj = await User.findByUsername(userName);
+
+    let user_id = user_Obj.id;
+    let item_id = req.body.item_id;
+
+
     let user = await Redeem.redeem(user_id, item_id);
     res.send(`Redeemed item (item_id=${item_id}) successfully.`);
 
@@ -55,7 +69,9 @@ app.post('/redeem', async function(req, res) {
       and call db.query to retrieve the necessary data from the database.
 */
 app.get('/list', async function(req, res) {
-  let redeemed_items = []; 
+  let redeemed_items = [];
+
+
 
   res.json(redeemed_items); 
 });
@@ -69,13 +85,14 @@ app.get('/list', async function(req, res) {
 */
 app.get('/logout', function(req, res) {
 
-  res.send(''); // place holder
+  req.session.destroy();
+
+  res.redirect('/login.html');
 });
 
 /* 
   Login the current user
 
-  TODO: Modify this callback function to perform the following tasks:
   1) Retrieve the username and password from the request's body
   2) Authenticate the user 
   3) Create a NEW session to remember the user if authentication succeeds.
@@ -86,12 +103,24 @@ app.post('/login', async function(req, res) {
     // In this sample code, the username and password are hardcoded.
     // Note: Password of 'user1' is 'pass1' (hardcoded in 'js/init/init.sql')
 
-    let result = await User.authenticate('user1', 'pass1');
-  
+    console.log(req.body);
+
+    let username = req.body.username;
+    let password = req.body.password;
+
+
+    console.log(username, password);
+
+
+    let result = await User.authenticate(username, password);
+
     if (result != null) {
+      req.session.username = username;
       res.send("Authentication succeeded: " + JSON.stringify(result));  // result is a user object
     }
     else {
+      req.session.destroy();
+      // cannot access session here
       res.send('Authentication failed');
     }
   } catch (err) {

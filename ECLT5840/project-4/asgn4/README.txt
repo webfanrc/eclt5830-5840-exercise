@@ -8,3 +8,11 @@ js/
 public/
   Contains publicly accessible static files (HTML, CSS, images, client-side JS, etc.)
 
+
+
+----
+
+
+主要写库执行文件：ECLT5840/project-4/asgn4/js/init/init.js
+
+

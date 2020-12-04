@@ -1,4 +1,4 @@
-const String = 'A';
+const String = 'DSS';
 
 
 // input: Number
