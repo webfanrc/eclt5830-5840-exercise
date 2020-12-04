@@ -3,7 +3,7 @@ window.addEventListener('load', function() {
 let app = new Vue({
   el: "#asgn3_app",
   data: {
-    selected: [],
+    selected: [], // selected list, item.id
     showSelected: false,
     items: [],      // Store filtered items
     allItems: []    // Store all items
@@ -16,7 +16,7 @@ let app = new Vue({
     },
 
     setAsgn3: function(asgn3) {
-      this.asgn3 = asgn3;
+      this.asgn3 = asgn3; // *
       this.restoreSelection();
     },
 
