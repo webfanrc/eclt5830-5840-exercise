@@ -1,3 +1,5 @@
+老师备注：
+
 config/
   Contain the configuration file for the database
 
@@ -15,4 +17,7 @@ public/
 
 主要写库执行文件：ECLT5840/project-4/asgn4/js/init/init.js
 
+学生主要逻辑文件：ECLT5840/project-4/asgn4/index.js
+
+作业要求：ECLT5840/project-4/asgn4-spec.pptx
 
