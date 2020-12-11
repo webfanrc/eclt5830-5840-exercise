@@ -20,8 +20,8 @@ Same origin means that they have the same host, port and protocol, so:
 
 - A is, the default port number is 80;
 - B is not, using different protocol;
-- C is;
-- D is;
+- C is not, ip is not;
+- D is not, see rfc6454 3.2.1;
 - E is not, using different port;
 - F is;
 - G is;
