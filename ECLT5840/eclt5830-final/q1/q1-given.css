@@ -1,0 +1,20 @@
+/* You should not need to modify this CSS file */
+/* Reset CSS */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+   background-color: #f0f0f0f0;
+}
+/* Use background color to ease visualization of the elements */
+#parent {
+  background-color: lightblue;
+  width: 270px;
+}
+#c1 { background-color: #ffaaaa; }
+#c2 { background-color: #aaffaa; }
+#c3 { background-color: #aaaaff; }
+#c4 { background-color: #bb88cc; }
+#c5 { background-color: #dddd99; }

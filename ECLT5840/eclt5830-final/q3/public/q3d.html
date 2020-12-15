@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Question 3d</title>
+<script src="./jquery.min.js"></script>
+<script>
+function send(value1, value2, value3) {
+  // TODO: Insert code here to send the parameter values to
+  // "http://localhost:8080/q3d" or "/q3d" asyncrhonously.
+
+  // How you represent the data in the HTTP request is up to you
+
+  // Upon receiving the response from the server, call console.log()
+  // to output the body content of the response.
+
+  $.ajax({
+    url: 'http://localhost:8080/q3q',
+    type: 'GET',
+    async: true,
+    data: {
+      "value1": value1,
+      "value2": value2,
+      "value3": value3,
+    },
+    dataType: 'string',
+    success: function(result) {
+      console.log(result);
+    }
+    // error: function(xhr) {
+    //   console.log(xhr);
+    // }
+  });
+}
+
+</script>
+
+</head>
+<body>
+  <h1>Question 3d</h1>
+  <p>After you have implemented the function send(), click this button to
+    call send(). You may want to change its parameter for different test cases</p>
+  <button onclick="send(undefined, 'null', null)">Call send()</button>
+
+</body>
+</html>

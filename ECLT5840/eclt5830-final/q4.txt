@@ -1,0 +1,10 @@
+a) 
+
+A
+B
+D
+E
+
+b) 
+
+Yes, cause when the attacker insert some scripts into his article and uploaded it, if other users read the article on the website and these malicious scripts will be loaded and executed in the user's browser.

@@ -1,0 +1,34 @@
+h1:first-of-type {
+    color: white;
+    background: url("./bg.jpg");
+}
+
+div#parent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px;
+}
+div#parent span{
+    display: flex;
+    width: 50px;
+    height: 50px;
+
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 480px) {
+    div#parent {
+        flex-wrap: wrap;
+    }
+    div#parent span {
+        width: 100%;
+    }
+    div#parent span#c2,
+    div#parent span#c4{
+        display: none;
+
+    }
+}
